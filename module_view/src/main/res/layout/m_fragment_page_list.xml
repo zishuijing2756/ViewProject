@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+<!--android:clipToPadding=false，默认android:clipToPadding=true
+就是说控件的绘制区域是否在padding里面的，true的情况下如果你设置了padding那么绘制的区域就往里 缩，假设 内部有个属性设置了PaddingTop但是滑动的时候就忽视paddingTop的 则使用该属性如设置android:clipToPadding=false-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/m_fragment_container_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:paddingLeft="150dp"
+        android:paddingRight="150dp"
+        android:background="@android:color/holo_blue_light">
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

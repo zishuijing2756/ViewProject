@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/holo_orange_light">
+<!--android:clipToPadding=false，默认android:clipToPadding=true
+就是说控件的绘制区域是否在padding里面的，true的情况下如果你设置了padding那么绘制的区域就往里 缩，假设 内部有个属性设置了PaddingTop但是滑动的时候就忽视paddingTop的 则使用该属性如设置android:clipToPadding=false-->
+    <android.support.v7.widget.CardView
+        android:id="@+id/m_fragmen_page_item_cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@android:color/holo_red_light"
+        app:cardCornerRadius="10dp"
+        app:cardMaxElevation="50dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/m_fragment_page_item_rl"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingBottom="42dip"
+            android:paddingTop="40dip">
+
+            <ImageView
+                android:id="@+id/m_fragment_page_item_heading_iv"
+                android:layout_width="140dip"
+                android:layout_height="140dip"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:id="@+id/m_fragment_page_item_text_tv"
+                android:layout_width="140dip"
+                android:layout_height="140dip"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="40sp"
+                android:visibility="visible"
+                tools:text="磊"/>
+
+           </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>
