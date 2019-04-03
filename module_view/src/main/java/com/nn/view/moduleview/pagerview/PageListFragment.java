@@ -1,4 +1,4 @@
-package com.nn.view.moduleview.pageview;
+package com.nn.view.moduleview.pagerview;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

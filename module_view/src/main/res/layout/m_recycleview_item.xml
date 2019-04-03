@@ -1,35 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-    android:padding="100dp">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:background="@android:color/holo_orange_light">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:clickable="true"
         android:focusable="true"
-        app:cardBackgroundColor="@color/cardview_shadow_start_color"
+        app:cardBackgroundColor="@android:color/holo_red_light"
         app:cardCornerRadius="10dp"
-        app:contentPadding="50dp">
+        app:cardMaxElevation="50dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
 
 
-        <TextView
-            android:id="@+id/m_test_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
-            android:text="@string/app_name"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"/>
-        <ImageView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="600dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_launcher_background"
-            android:contentDescription="@string/app_name"/>
+            android:paddingTop="40dip"
+            android:paddingBottom="42dip">
+
+            <TextView
+                android:id="@+id/m_test_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/app_name"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="25sp"
+                tools:text="测试测试"/>
+
+
+            <ImageView
+                android:layout_below="@+id/m_test_tv"
+                android:layout_marginTop="10dp"
+                android:layout_width="140dip"
+                android:layout_height="140dip"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_launcher_background"/>
+
+        </RelativeLayout>
+
+
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+</FrameLayout>

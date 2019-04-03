@@ -1,4 +1,4 @@
-package com.nn.view.moduleview.pageview;
+package com.nn.view.moduleview.pagerview;
 
 
 import android.support.v7.widget.CardView;
