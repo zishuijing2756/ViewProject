@@ -1,10 +1,13 @@
-package com.nn.view.moduleview.pagerview;
+package com.nn.view.moduleview.servicelist;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
+import android.view.View;
+
+import com.nn.view.moduleview.servicelist.adapter.ICardAdapter;
 
 
-public class ShadowTransformer implements ViewPager.OnPageChangeListener {
+public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {
 
     private ViewPager mViewPager;
     private ICardAdapter mAdapter;
@@ -20,13 +23,13 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener {
     public void enableScaling(boolean enable) {
         CardView currentCard = mAdapter.getCardViewAt(mViewPager.getCurrentItem());
         if (mScalingEnabled && !enable) {
-            // 缩小
+            // shrink main card
             if (currentCard != null) {
                 currentCard.animate().scaleY(1.0f);
                 currentCard.animate().scaleX(1.0f);
             }
-        } else if (!mScalingEnabled && enable) {
-            // 放大
+        }else if(!mScalingEnabled && enable){
+            // grow main card
             if (currentCard != null) {
                 currentCard.animate().scaleY(1.1f);
                 currentCard.animate().scaleX(1.1f);
@@ -36,15 +39,18 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener {
         mScalingEnabled = enable;
     }
 
-    /**
-     * bug 162402 临时解决方案，主动放大
-     */
+    // bug 162402 临时解决方案，主动放大
     public void scaling(boolean enable) {
         CardView currentCard = mAdapter.getCardViewAt(mViewPager.getCurrentItem());
         if (currentCard != null && enable) {
             currentCard.animate().scaleY(1.1f).setDuration(0);
             currentCard.animate().scaleX(1.1f).setDuration(0);
         }
+    }
+
+    @Override
+    public void transformPage(View page, float position) {
+
     }
 
     @Override

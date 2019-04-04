@@ -65,7 +65,7 @@ public class PageListFragment extends BaseFragment {
         ShadowTransformer shadowTransformer = new ShadowTransformer(mViewPager, mPageListAdapter);
 
         mViewPager.setAdapter(mPageListAdapter);
-        mViewPager.setPageTransformer(false, shadowTransformer);
+        // mViewPager.setPageTransformer(false, shadowTransformer);
         shadowTransformer.enableScaling(true);
 
     }

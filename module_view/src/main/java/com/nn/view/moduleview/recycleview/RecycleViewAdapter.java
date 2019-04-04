@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.nn.view.moduleview.R;
+import com.nn.view.moduleview.pagerview.ICardAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ import java.util.List;
  *
  * @author yangnana
  */
-public class RecycleViewAdapter extends RecyclerView.Adapter {
+public class RecycleViewAdapter extends RecyclerView.Adapter implements ICardAdapter {
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private List<CardView> mCardViews;
@@ -55,18 +56,21 @@ public class RecycleViewAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // BaseViewHolder viewHolder=null;
         return new BaseViewHolder(mLayoutInflater.inflate(R.layout.m_recycleview_item, parent,
                 false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
 
-       ServiceInfo serviceInfo= mList.get(i);
+       ServiceInfo serviceInfo= mList.get(position);
        if(viewHolder instanceof  BaseViewHolder){
            ((BaseViewHolder) viewHolder).setText(serviceInfo.serviceName);
+           mCardViews.set(position, ((BaseViewHolder) viewHolder).getCardView());
        }
+
 
 
     }
@@ -76,4 +80,19 @@ public class RecycleViewAdapter extends RecyclerView.Adapter {
         return mList.size();
     }
 
+    @Override
+    public CardView getCardViewAt(int position) {
+        if (mCardViews == null) {
+            return null;
+        }
+        if (position > 0 && position < mCardViews.size()) {
+            return mCardViews.get(position);
+        }
+        return null;
+    }
+
+    @Override
+    public int getCount() {
+        return mList.size();
+    }
 }

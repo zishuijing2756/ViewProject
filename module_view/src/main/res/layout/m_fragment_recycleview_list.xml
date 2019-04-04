@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    android:padding="50dp">
+              android:layout_height="match_parent">
 
+
+    <!--RecyclerView必须设置paddingStart和paddingEnd，并且值相同，才能保证第一个和最后一个View剧中显示尽量设置大一点的值-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/m_list_container_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
         android:clipToPadding="false"
-        android:background="@android:color/holo_blue_light">
+        android:paddingStart="200dp"
+        android:paddingEnd="200dp">
 
     </android.support.v7.widget.RecyclerView>
 
