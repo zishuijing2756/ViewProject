@@ -9,10 +9,7 @@ import android.widget.FrameLayout;
 
 import com.nn.view.moduleview.R;
 
-/**
- * ProjectName:wytmodultguide
- * PackageName:com.guahao.android.wyt.guide.servicelist
- * Description:
+/**x
  * <p>
  * CreateTime:2019/4/4
  * Modifier:yangnana

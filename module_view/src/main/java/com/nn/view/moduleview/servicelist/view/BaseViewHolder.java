@@ -7,9 +7,6 @@ import android.view.View;
 import com.nn.view.moduleview.servicelist.entity.BaseServiceInfo;
 
 /**
- * ProjectName:wytmodultguide
- * PackageName:com.guahao.android.wyt.guide.view
- * Description:
  * <p>
  * CreateTime:2019/4/1
  * Modifier:yangnana

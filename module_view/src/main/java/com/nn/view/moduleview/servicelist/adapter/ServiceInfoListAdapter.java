@@ -20,9 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ProjectName:wytmodultguide
- * PackageName:com.guahao.android.wyt.guide.servicelist.adapter
- * Description: 选择服务页适配
  * <p>
  * CreateTime:2019/4/1
  * Modifier:yangnana

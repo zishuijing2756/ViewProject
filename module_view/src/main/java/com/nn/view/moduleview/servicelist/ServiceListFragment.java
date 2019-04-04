@@ -22,9 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ProjectName:wytmodultguide
- * PackageName:com.guahao.android.wyt.guide.servicelist
- * Description:
  * <p>
  * CreateTime:2019/4/4
  * Modifier:yangnana

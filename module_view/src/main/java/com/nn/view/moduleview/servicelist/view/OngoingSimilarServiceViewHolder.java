@@ -4,13 +4,10 @@ import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
-import com.guahao.android.wyt.guide.R;
-import com.guahao.android.wyt.guide.servicelist.entity.OngoingSimilarServiceInfo;
+import com.nn.view.moduleview.R;
+import com.nn.view.moduleview.servicelist.entity.OngoingSimilarServiceInfo;
 
 /**
- * ProjectName:wytmodultguide
- * PackageName:com.guahao.android.wyt.guide.servicelist.view
- * Description:
  * <p>
  * CreateTime:2019/4/1
  * Modifier:yangnana
