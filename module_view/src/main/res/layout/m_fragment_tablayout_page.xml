@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/m_bg_shape_tablayout_page"
+        android:orientation="vertical">
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/m_fragment_tablayout_page_tl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:paddingBottom="10dp"
+            app:tabContentStart="3.5dp"
+            app:tabIndicatorColor="#23CBD6"
+            app:tabIndicatorHeight="2dp"
+            app:tabPaddingBottom="0dp"
+            app:tabPaddingTop="10dp"
+            app:tabSelectedTextColor="#23CBD6"
+            app:tabTextAppearance="@style/TabLayoutTextAppearance"
+            app:tabTextColor="#9AA5BB"/>
+
+        <!--自定义TabLayout的图片指示器-->
+        <com.nn.view.moduleview.tablayout.widget.ImageIndicator
+            android:id="@+id/m_fragment_tablayout_page_tab_item_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="25dp"/>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="7.5dp"
+        android:layout_marginEnd="12.5dp"
+        android:layout_marginBottom="7.5dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/m_fragment_tablayout_page_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_orange_light"/>
+
+    </FrameLayout>
+</LinearLayout>

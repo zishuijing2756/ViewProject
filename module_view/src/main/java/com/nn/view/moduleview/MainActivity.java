@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 
 import com.nn.view.moduleview.pagerview.PageListFragment;
 import com.nn.view.moduleview.recycleview.RecyclerListFragment;
+import com.nn.view.moduleview.tablayout.TabLayoutPageFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         //ViewPager实现水平分页
         // addPagerFragment();
         //RecyclerView实现水平滑动分页
-        addRecyclerListFragment();
+        // addRecyclerListFragment();
+        addTabLayoutPageFragment();
     }
 
     private void addPagerFragment() {
@@ -53,4 +55,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void addTabLayoutPageFragment() {
+        mFragment.removeAllViews();
+
+        FragmentManager mFragmentManager = getSupportFragmentManager();
+        TabLayoutPageFragment mTabLayoutPageFragment = TabLayoutPageFragment.getInstance();
+
+        Log.i(TAG, "******addRecyclerListFragment");
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        transaction.replace(R.id.m_fragment_page_container_fl, mTabLayoutPageFragment, "TabLayoutPageFragment");
+        transaction.commit();
+
+    }
 }
