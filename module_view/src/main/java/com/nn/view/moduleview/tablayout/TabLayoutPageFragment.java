@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ import java.util.List;
  */
 public class TabLayoutPageFragment extends Fragment {
 
-    private static final String TAG = "VideoServiceListFragment";
+    private static final String TAG = "TabLayoutPageFragment";
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private MyViewPager mAdapter;
@@ -84,13 +85,14 @@ public class TabLayoutPageFragment extends Fragment {
         // TabLayoutUtil.dynamicSetTabLayoutMode(WYCoreUtils.getApp(), mTabLayout);
 
         setPageChangeListener();
-        setOnTabSelectedListener();
+        // setOnTabSelectedListener();
     }
 
     /**
      * 设置页面切换监听
      */
     private void setPageChangeListener() {
+
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout) {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -98,9 +100,13 @@ public class TabLayoutPageFragment extends Fragment {
                  * 将滑动偏移量传给Indicator
                  * 说明：positionOffset指的是滑动偏移量相对与父组件的百分比
                  */
+                Log.i(TAG,"********onPageScrolled,position="+position+",positionOffset="+positionOffset);
+
                 imageIndicator.setIndicatorPositionFromTabPosition(position, positionOffset);
             }
+
         });
+
 
     }
 

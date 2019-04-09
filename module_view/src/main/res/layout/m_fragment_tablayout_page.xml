@@ -22,15 +22,13 @@
             android:layout_gravity="start"
             android:layout_marginStart="25dp"
             android:paddingBottom="10dp"
-            app:tabContentStart="3.5dp"
             app:tabIndicatorColor="#23CBD6"
-            app:tabIndicatorHeight="2dp"
+            app:tabIndicatorHeight="0dp"
             app:tabPaddingBottom="0dp"
             app:tabPaddingTop="10dp"
             app:tabSelectedTextColor="#23CBD6"
             app:tabTextAppearance="@style/TabLayoutTextAppearance"
             app:tabTextColor="#9AA5BB"/>
-
         <!--自定义TabLayout的图片指示器-->
         <com.nn.view.moduleview.tablayout.widget.ImageIndicator
             android:id="@+id/m_fragment_tablayout_page_tab_item_indicator"
@@ -38,6 +36,7 @@
             android:layout_height="10dp"
             android:layout_gravity="bottom"
             android:layout_marginStart="25dp"/>
+
 
     </FrameLayout>
 

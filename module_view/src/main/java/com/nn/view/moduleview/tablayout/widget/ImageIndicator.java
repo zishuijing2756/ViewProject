@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewCompat;
@@ -58,6 +60,7 @@ public class ImageIndicator extends View {
     TabLayout tabs;
 
     public void setIndicatorPositionFromTabPosition(int position, float positionOffset) {
+        Log.i(TAG, "******setIndicatorPositionFromTabPosition,");
         mSelectedPosition = position;
         mSelectionOffset = positionOffset;
         updateIndicatorPosition();
@@ -65,6 +68,8 @@ public class ImageIndicator extends View {
 
 
     public void setupWithTabLayout(TabLayout tabs) {
+        Log.i(TAG, "******setupWithTabLayout");
+
         this.tabs = tabs;
         if (tab == null) {
             tab = getTabStrip();
@@ -75,15 +80,24 @@ public class ImageIndicator extends View {
      * 计算滑动杆位置
      */
     private void updateIndicatorPosition() {
+        Log.i(TAG, "******updateIndicatorPosition");
+
         if (tab == null) {
+            Log.i(TAG, "******updateIndicatorPosition--->tab==null");
+
             return;
         }
+        Log.i(TAG, "******updateIndicatorPosition1");
+
         final View selectedTitle = tab.getChildAt(mSelectedPosition);
         int left, right;
 
         if (selectedTitle != null && selectedTitle.getWidth() > 0) {
+            Log.i(TAG, "******updateIndicatorPosition2");
+
             left = selectedTitle.getLeft();
             right = selectedTitle.getRight();
+            Log.i(TAG, "******selectedTitle->left=" + left + ",right=" + right);
 
             if (mSelectionOffset > 0f && mSelectedPosition < tab.getChildCount() - 1) {
 
@@ -94,8 +108,11 @@ public class ImageIndicator extends View {
                 right = (int) (mSelectionOffset * nextTitle.getRight() +
                         (1.0f - mSelectionOffset) * right);
 
+                Log.i(TAG, "******nextTitle->left=" + nextTitle.getLeft() + ",right=" + nextTitle.getRight());
             }
         } else {
+            Log.i(TAG, "******updateIndicatorPosition3");
+
             left = right = -1;
         }
 
@@ -104,6 +121,8 @@ public class ImageIndicator extends View {
 
 
     void setIndicatorPosition(int left, int right) {
+        Log.i(TAG, "******setIndicatorPosition");
+
         if (left != mIndicatorLeft || right != mIndicatorRight) {
             Log.i(TAG, "******mIndicatorLeft=" + left + ",mIndicatorRight=" + right);
             Log.i(TAG, "******mIndicatorlength=" + (right - left));
@@ -121,19 +140,39 @@ public class ImageIndicator extends View {
 
         /*绘制图片*/
         if (mIndicatorLeft >= 0 && mIndicatorRight > mIndicatorLeft) {
-            canvas.drawBitmap(mBitmap, mIndicatorLeft, getHeight() - mBitmap.getHeight(), mSelectedIndicatorPaint);
+            //绘制指示器
+            Matrix matrix = new Matrix();
+            //设置指示器的长度与tab文字长度相同
+            matrix.postScale((mIndicatorRight - mIndicatorLeft) / mBitmap.getWidth(), 1);
+            //平移指示器的x坐标，
+            matrix.postTranslate(mIndicatorLeft, 0);
+
+            canvas.drawBitmap(mBitmap, matrix, mSelectedIndicatorPaint);
+
         }
     }
 
     /**
      * tabs : TabLayout
      * 通过反射TabLayout拿到SlidingTabStrip这个内部类
+     * TabLayout.SlidingTabIndicator slidingTabIndicator;
      */
     public LinearLayout getTabStrip() {
         Class<?> tabLayout = tabs.getClass();
         Field tabStrip = null;
         try {
-            tabStrip = tabLayout.getDeclaredField("mTabStrip");
+            //注：不同API版本，TabLayout内部类名字不一样，
+            Log.i(TAG, "******getTabStrip1->sdk-int" + Build.VERSION.SDK_INT);
+            int sdkVersion = getContext().getApplicationInfo().targetSdkVersion;
+            if (sdkVersion >= Build.VERSION_CODES.P) {
+                Log.i(TAG, "******getTabStrip1");
+
+                tabStrip = tabLayout.getDeclaredField("slidingTabIndicator");
+            } else {
+                Log.i(TAG, "******getTabStrip2");
+
+                tabStrip = tabLayout.getDeclaredField("mTabStrip");
+            }
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }

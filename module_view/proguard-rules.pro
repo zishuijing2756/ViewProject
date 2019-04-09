@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontwarn android.support.**
+# 保留第三方库-support所有子包下的类和所有内容，防止被混淆或移除
+-keep class android.support.** {*;}
+-keep interface android.support.** { *; }
