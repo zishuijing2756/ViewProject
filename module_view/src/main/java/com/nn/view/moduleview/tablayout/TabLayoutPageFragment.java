@@ -77,13 +77,6 @@ public class TabLayoutPageFragment extends Fragment {
         mTabLayout.setupWithViewPager(mViewPager, false);
         imageIndicator.setupWithTabLayout(mTabLayout);
 
-
-        for (int i = 0; i < titles.size(); i++) {
-            mTabLayout.addTab(mTabLayout.newTab());
-        }
-
-        // TabLayoutUtil.dynamicSetTabLayoutMode(WYCoreUtils.getApp(), mTabLayout);
-
         setPageChangeListener();
         // setOnTabSelectedListener();
     }
@@ -100,7 +93,7 @@ public class TabLayoutPageFragment extends Fragment {
                  * 将滑动偏移量传给Indicator
                  * 说明：positionOffset指的是滑动偏移量相对与父组件的百分比
                  */
-                Log.i(TAG,"********onPageScrolled,position="+position+",positionOffset="+positionOffset);
+                Log.i(TAG, "********onPageScrolled,position=" + position + ",positionOffset=" + positionOffset);
 
                 imageIndicator.setIndicatorPositionFromTabPosition(position, positionOffset);
             }
