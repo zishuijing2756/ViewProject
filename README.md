@@ -15,6 +15,7 @@ TabLayout的功能主要看tablayout3里面的功能：
         <!--必须加上
             app:tabMaxWidth="200dp"
             app:tabMinWidth="20dp"这两个设置，padding才能生效-->
+            
         <com.nn.view.moduleview.tablayout3.SlidingTabLayout3
             android:id="@+id/m_fragment_tablayout_page_tl"
             android:layout_width="match_parent"
@@ -28,7 +29,9 @@ TabLayout的功能主要看tablayout3里面的功能：
             app:tabSelectedTextColor="#23CBD6"
             app:tabTextColor="#9AA5BB"/>
 2、设置ViewPager的滑动监听，在onPageScrolled方法里面调用：
-mTabLayout.setIndicatorPositionFromTabPosition(position, positionOffset);
+
+   mTabLayout.setIndicatorPositionFromTabPosition(position, positionOffset);
+   
    
     private void setPageChangeListener() {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -51,9 +54,12 @@ mTabLayout.setIndicatorPositionFromTabPosition(position, positionOffset);
 
     }
     
-    3、如果要改变指示器的图片：
+ 3、如果要改变指示器的图片：
     SlidingTabLayout类里面有这个方法：
-     public void setmSlideIcon(Bitmap mSlideIcon) {
+    
+    public void setmSlideIcon(Bitmap mSlideIcon) {
         this.mSlideIcon = mSlideIcon;
     }
-    调用这个方法设置图片即可；
+   
+   调用这个方法设置图片即可；
+   
